@@ -10,6 +10,7 @@ namespace lysenkobv\GeoIP;
  * @property string|null city
  * @property string|null country
  * @property Location location
+ * @property string|null isoCode
  */
 class Result extends ResultBase {
     protected function getCity($data) {
