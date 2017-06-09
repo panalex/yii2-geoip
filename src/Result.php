@@ -13,7 +13,7 @@ namespace lysenkobv\GeoIP;
  * @property string|null $isoCode
  */
 class Result extends ResultBase {
-    public function getCity($data) {
+    protected function getCity($data) {
         $value = null;
 
         if (isset($data['city']['names']['en'])) {
@@ -23,7 +23,7 @@ class Result extends ResultBase {
         return $value;
     }
 
-    public function getCountry($data) {
+    protected function getCountry($data) {
         $value = null;
 
         if (isset($data['country']['names']['en'])) {
@@ -33,7 +33,7 @@ class Result extends ResultBase {
         return $value;
     }
 
-    public function getLocation($data) {
+    protected function getLocation($data) {
         $value = new Location();
 
         if (isset($data['location'])) {
@@ -45,7 +45,7 @@ class Result extends ResultBase {
         return $value;
     }
 
-    public function getIsoCode($data) {
+    protected function getIsoCode($data) {
         $value = null;
 
         if (isset($data['country']['iso_code'])) {
