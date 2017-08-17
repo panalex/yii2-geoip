@@ -15,8 +15,8 @@ class GeoIP extends Component {
     /**
      * @var string
      */
-    public $dbPath;    
-    
+    public $dbPath;
+
     /**
      * @var Reader
      */

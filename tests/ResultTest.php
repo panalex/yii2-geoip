@@ -31,6 +31,40 @@ class ResultTest extends TestCase {
             $this->assertEquals($expect, $actual);
         }
     }
+    public function testCityGeoname() {
+        $items = [
+            "72.229.28.185" => 5128581
+        ];
+
+        foreach ($items as $ip => $expect) {
+            $result = $this->result($ip);
+            $actual = $result->cityGeoname;
+            $this->assertEquals($expect, $actual);
+        }
+    }
+
+    public function testSubdivisionIso() {
+        $items = [
+            "72.229.28.185" => "NY"
+        ];
+
+        foreach ($items as $ip => $expect) {
+            $result = $this->result($ip);
+            $actual = $result->subdivisionIso;
+            $this->assertEquals($expect, $actual);
+        }
+    }
+    public function testSubdivisionGeoname() {
+        $items = [
+            "72.229.28.185" => 5128638
+        ];
+
+        foreach ($items as $ip => $expect) {
+            $result = $this->result($ip);
+            $actual = $result->subdivisionGeoname;
+            $this->assertEquals($expect, $actual);
+        }
+    }
 
     public function testCountry() {
         $items = [
@@ -44,8 +78,19 @@ class ResultTest extends TestCase {
             $this->assertEquals($expect, $actual);
         }
     }
+    public function testCountryGeoname() {
+        $items = [
+            "72.229.28.185" => "6252001"
+        ];
 
-    public function testIsoCode() {
+        foreach ($items as $ip => $expect) {
+            $result = $this->result($ip);
+            $actual = $result->countryGeoname;
+            $this->assertEquals($expect, $actual);
+        }
+    }
+
+    public function testCountryIso() {
         $items = [
             "93.210.15.68" => "DE",
             "177.140.143.40" => "BR",
@@ -53,7 +98,7 @@ class ResultTest extends TestCase {
 
         foreach ($items as $ip => $expect) {
             $result = $this->result($ip);
-            $actual = $result->isoCode;
+            $actual = $result->countryIso;
             $this->assertEquals($expect, $actual);
         }
     }
